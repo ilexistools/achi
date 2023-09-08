@@ -1,10 +1,8 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_point4",
-  "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-  ],
+  "name": "obj_player1_parent",
+  "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
@@ -28,8 +26,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_point",
-    "path": "sprites/spr_point/spr_point.yy",
+    "name": "spr_red_disc_normal",
+    "path": "sprites/spr_red_disc_normal/spr_red_disc_normal.yy",
   },
   "spriteMaskId": null,
   "visible": true,

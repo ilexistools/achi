@@ -12,8 +12,8 @@
     "path": "folders/Objects.yy",
   },
   "parentObjectId": {
-    "name": "obj_board",
-    "path": "objects/obj_board/obj_board.yy",
+    "name": "obj_point",
+    "path": "objects/obj_point/obj_point.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
