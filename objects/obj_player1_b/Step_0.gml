@@ -2,10 +2,19 @@
 // You can write your code in this editor
 if (dragged==false)
 {
-	if (sprite_index != spr_red_disc_normal)
+	if (global.player_turn == 0)
 	{
-		sprite_index = spr_red_disc_normal;
+		if (sprite_index != spr_red_disc_star)
+		{
+			sprite_index = spr_red_disc_star;
+		}
+	}else{
+		if (sprite_index != spr_red_disc_normal)
+		{
+			sprite_index = spr_red_disc_normal;
+		}
 	}
+	
 	depth = 0;
 	exit;
 }else{

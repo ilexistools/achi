@@ -46,15 +46,42 @@ function is_aligned(_parent, _obj1, _obj2, _obj3)
 	}
 }
 
-function check_player_win(_obj_player)
+function check_player_win(_player_number)
 {
 	// ["123","456","789","147","258","369","159","357"];
-	var _parent =_obj_player;
 	
-	if (obj_point1.player == 1 && obj_point2.player==1)
+	
+	if (obj_point1.player == _player_number && obj_point2.player== _player_number  && obj_point3.player==_player_number)
 	{
 		return true;
 	}
-	
+	if (obj_point4.player == _player_number && obj_point5.player== _player_number  && obj_point6.player==_player_number)
+	{
+		return true;
+	}
+	if (obj_point7.player == _player_number && obj_point8.player== _player_number  && obj_point9.player==_player_number)
+	{
+		return true;
+	}
+	if (obj_point1.player == _player_number && obj_point4.player== _player_number  && obj_point7.player==_player_number)
+	{
+		return true;
+	}
+	if (obj_point2.player == _player_number && obj_point5.player== _player_number  && obj_point8.player==_player_number)
+	{
+		return true;
+	}
+	if (obj_point3.player == _player_number && obj_point6.player== _player_number  && obj_point9.player==_player_number)
+	{
+		return true;
+	}
+	if (obj_point1.player == _player_number && obj_point5.player== _player_number  && obj_point9.player==_player_number)
+	{
+		return true;
+	}
+	if (obj_point3.player == _player_number && obj_point5.player== _player_number  && obj_point7.player==_player_number)
+	{
+		return true;
+	}
 	return false;
 }

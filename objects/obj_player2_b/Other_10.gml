@@ -43,9 +43,12 @@ if (_collision_instance != noone )
 		x_start = x;
 		y_start = y;
 		// set point the player number
-		_collision_instance.player = 1;
-		
-		
+		_collision_instance.player = 2;
+		// play drog sound
+		if (global.sound_enabled==true)
+		{
+			audio_play_sound(snd_drop, 10,false);
+		}
 		// change turn 
 		if (global.player_turn == 0)
 		{
@@ -54,11 +57,14 @@ if (_collision_instance != noone )
 			global.player_turn = 0;
 		}
 		// check win
-		if (check_player_win(obj_player1_parent)==true)
+		if (check_player_win(2)==true)
 		{
-			show_message("WIN!");
+			// trigger win event
+			with(obj_match_controller)
+			{
+				event_user(2);
+			}
 		}
-		
 	}else{
 		// not in rule, do not move
 	    x = x_start;
@@ -72,10 +78,7 @@ else
     y = y_start;
 }
 
-if (global.player_turn==true)
-{
-	audio_play_sound(snd_drop, 10,false);
-}
+
 
 
 
