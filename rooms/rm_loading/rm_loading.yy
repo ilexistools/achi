@@ -1,14 +1,14 @@
 {
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
-  "name": "Room1",
+  "name": "rm_loading",
   "creationCodeFile": "",
   "inheritCode": false,
   "inheritCreationOrder": false,
   "inheritLayers": false,
   "instanceCreationOrder": [
-    {"name":"inst_30A68963","path":"rooms/Room1/Room1.yy",},
-    {"name":"inst_69D201B5","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_30A68963","path":"rooms/rm_loading/rm_loading.yy",},
+    {"name":"inst_69D201B5","path":"rooms/rm_loading/rm_loading.yy",},
   ],
   "isDnd": false,
   "layers": [

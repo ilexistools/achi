@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_button_restart",
+  "name": "obj_button_home",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":10,"eventType":6,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":11,"eventType":6,"isDnD":false,},
@@ -31,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_button_restart_normal",
-    "path": "sprites/spr_button_restart_normal/spr_button_restart_normal.yy",
+    "name": "spr_button_home_normal",
+    "path": "sprites/spr_button_home_normal/spr_button_home_normal.yy",
   },
   "spriteMaskId": null,
   "visible": true,

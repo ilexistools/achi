@@ -3,6 +3,8 @@
 
 global.player_turn = 0;
 
+// set turn randomly
+global.player_turn = round(random_range(0,1));
 
 
 
