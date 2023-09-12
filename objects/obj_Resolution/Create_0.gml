@@ -11,6 +11,6 @@ surface_resize(application_surface,view_wport[0],view_hport[0])
 window_set_size(bw,bh)
 
 window_center()
-room_goto_next()
+room_goto(rm_title_screen)
                 
 
