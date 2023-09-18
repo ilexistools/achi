@@ -5,6 +5,7 @@
     {"name":"Fonts","order":7,"path":"folders/Fonts.yy",},
     {"name":"Notes","order":13,"path":"folders/Notes.yy",},
     {"name":"Objects","order":9,"path":"folders/Objects.yy",},
+    {"name":"points","order":43,"path":"folders/Objects/points.yy",},
     {"name":"Particle Systems","order":15,"path":"folders/Particle Systems.yy",},
     {"name":"Paths","order":4,"path":"folders/Paths.yy",},
     {"name":"Rooms","order":10,"path":"folders/Rooms.yy",},
@@ -15,7 +16,6 @@
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
-    {"name":"points","order":43,"path":"folders/Objects/points.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_win_message_blue","order":46,"path":"objects/obj_win_message_blue/obj_win_message_blue.yy",},
@@ -65,6 +65,7 @@
     {"name":"spr_button_start_normal","order":19,"path":"sprites/spr_button_start_normal/spr_button_start_normal.yy",},
     {"name":"spr_score_blue","order":30,"path":"sprites/spr_score_blue/spr_score_blue.yy",},
     {"name":"obj_point2","order":2,"path":"objects/obj_point2/obj_point2.yy",},
+    {"name":"obj_score_blue","order":48,"path":"objects/obj_score_blue/obj_score_blue.yy",},
     {"name":"obj_player2_parent","order":24,"path":"objects/obj_player2_parent/obj_player2_parent.yy",},
     {"name":"spr_howtoplay_over","order":22,"path":"sprites/spr_howtoplay_over/spr_howtoplay_over.yy",},
     {"name":"obj_Resolution","order":1,"path":"objects/obj_Resolution/obj_Resolution.yy",},
