@@ -44,6 +44,7 @@ if (_collision_instance != noone )
 		y_start = y;
 		// set point the player number
 		_collision_instance.player = 2;
+	
 		// play drog sound
 		if (global.sound_enabled==true)
 		{

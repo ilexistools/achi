@@ -53,6 +53,12 @@ if (_collision_instance != noone )
 		if (global.player_turn == 0)
 		{
 			global.player_turn = 1;
+			// call machine ai 
+			with (obj_match_controller)
+			{
+				event_user(3);
+			}
+			
 		}else{
 			global.player_turn = 0;
 		}
