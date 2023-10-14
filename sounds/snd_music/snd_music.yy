@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "snd_click",
+  "name": "snd_music",
   "audioGroupId": {
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
@@ -10,14 +10,14 @@
   "bitRate": 128,
   "compression": 3,
   "conversionMode": 0,
-  "duration": 0.054729,
+  "duration": 2.063673,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
   "preload": false,
-  "sampleRate": 48000,
-  "soundFile": "snd_click.wav",
-  "type": 1,
+  "sampleRate": 44100,
+  "soundFile": "snd_music.mp3",
+  "type": 0,
   "volume": 1.0,
 }

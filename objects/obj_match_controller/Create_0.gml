@@ -16,4 +16,5 @@ if (global.player_turn == 1)
 }
 
 
+audio_stop_all();
 
