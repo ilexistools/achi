@@ -3,7 +3,7 @@
 
 if (global.player_turn == 1)
 {
-	var _valid_moves = ai_choose_random_move();
+	var _valid_moves = ai_choose_move();
 	var _object = _valid_moves[0];
 	var _move =  _valid_moves[1];
 	var _point = ai_get_point_by_pos(_move);

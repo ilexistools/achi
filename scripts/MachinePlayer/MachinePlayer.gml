@@ -1,3 +1,72 @@
+function ai_choose_move()
+{
+	var _valid_move = undefined;
+	var _blocking_point = ai_find_blocking_move();
+	var _winning_points = ai_find_winning_move();
+	
+	// BLOCKING
+	if (_blocking_point != undefined)
+	{
+		// get the pos to block
+		var _pos = _blocking_point.pos;
+		// list player 2 objects
+		var _player_objects = noone;
+		if (global.pieces == 4)
+		{
+			_player_objects = [obj_player2_a, obj_player2_b, obj_player2_c, obj_player2_d];
+		}else{
+			_player_objects = [obj_player2_a, obj_player2_b, obj_player2_c];
+		}
+		// check which object can block
+		for (var _i = 0; _i < array_length(_player_objects); _i++)
+		{
+			if (ai_can_move(_player_objects[_i].pos, _pos))
+			{
+				return [_player_objects[_i], _pos];
+			}
+		}
+	}
+	
+	// TRYING TO WIN
+	if (array_length(_winning_points)!= 0)
+	{
+		// get winning points
+		var _point_win = _winning_points[0];
+		var _point_1 = _winning_points[1];
+		var _point_2 = _winning_points[2];
+		
+		// list player 2 objects
+		var _player_objects = noone;
+		if (global.pieces == 4)
+		{
+			_player_objects = [obj_player2_a, obj_player2_b, obj_player2_c, obj_player2_d];
+		}else{
+			_player_objects = [obj_player2_a, obj_player2_b, obj_player2_c];
+		}
+		// check which object can take winning point
+		for (var _i = 0; _i < array_length(_player_objects); _i++)
+		{
+			// check if it can move to take it
+			if (ai_can_move(_player_objects[_i].pos, _point_win.pos))
+			{
+				//check if it is not from the other winning points taken
+				if (_player_objects[_i].pos != _point_1 && _player_objects[_i].pos != _point_2 )
+				{
+					return [_player_objects[_i],  _point_win.pos];
+				}
+			}
+		}
+	}
+	
+	// PLAY RANDOM
+	_valid_move = ai_choose_random_move();
+	return _valid_move;
+}
+
+
+
+
+
 /// Check rules if player can move
 /// @param _current_pos is the current point position 
 /// @param _target_pos is the target point position
@@ -47,8 +116,16 @@ function ai_get_valid_moves(_player_object)
 /// @return Retorna um array com [objeto, posição]
 function ai_choose_random_move()
 {
+	
+	
     // Lista de objetos do jogador máquina
-	var _player_objects = [obj_player2_a, obj_player2_b, obj_player2_c, obj_player2_d];
+	var _player_objects = noone;
+	if (global.pieces == 4)
+	{
+		_player_objects = [obj_player2_a, obj_player2_b, obj_player2_c, obj_player2_d];
+	}else{
+		_player_objects = [obj_player2_a, obj_player2_b, obj_player2_c];
+	}
 	
 	// Filtra movimentos válidos 
 	var _objects_with_valid_moves = [];
@@ -192,6 +269,99 @@ function ai_get_point_by_pos(_point_pos)
 		
 	}
 	return _point;
+}
+
+
+function ai_find_blocking_move() 
+{
+    // Array de todas as combinações vencedoras possíveis
+    var _winning_combos = [
+        [obj_point1, obj_point2, obj_point3],
+        [obj_point4, obj_point5, obj_point6],
+        [obj_point7, obj_point8, obj_point9],
+        [obj_point1, obj_point4, obj_point7],
+        [obj_point2, obj_point5, obj_point8],
+        [obj_point3, obj_point6, obj_point9],
+        [obj_point1, obj_point5, obj_point9],
+        [obj_point3, obj_point5, obj_point7]
+    ];
+
+    // Verifica se o jogador 1 está prestes a vencer
+    for (var _i = 0; _i < array_length(_winning_combos); _i++) {
+        var _combo = _winning_combos[_i];
+        var _player1count = 0;
+        var _player2count = 0;
+
+        for (var _j = 0; _j < array_length(_combo); _j++) {
+            var _point = _combo[_j];
+            if (_point.player == 1) {
+                _player1count++;
+            }
+            else if (_point.player == 2) {
+                _player2count++;
+            }
+        }
+
+        if (_player1count == 2 && _player2count == 0) {
+            // Jogador 1 está prestes a vencer, e o jogador 2 deve bloquear essa jogada
+            for (var _k = 0; _k < array_length(_combo); _k++) {
+                var _point = _combo[_k];
+                if (_point.player != 1 && _point.player != 2) {
+                    return _point;
+                }
+            }
+        }
+    }
+
+    // Se não houver uma jogada iminente de vitória do jogador 1, retorne null
+    return null;
+}
+
+function ai_find_winning_move() 
+{
+    // Array de todas as combinações vencedoras possíveis
+    var _winning_combos = [
+        [obj_point1, obj_point2, obj_point3],
+        [obj_point4, obj_point5, obj_point6],
+        [obj_point7, obj_point8, obj_point9],
+        [obj_point1, obj_point4, obj_point7],
+        [obj_point2, obj_point5, obj_point8],
+        [obj_point3, obj_point6, obj_point9],
+        [obj_point1, obj_point5, obj_point9],
+        [obj_point3, obj_point5, obj_point7]
+    ];
+
+    // Verifica se o jogador 2 está prestes a vencer
+    for (var _i = 0; _i < array_length(_winning_combos); _i++) {
+        var _combo = _winning_combos[_i];
+        var _player1count = 0;
+        var _player2count = 0;
+
+        for (var _j = 0; _j < array_length(_combo); _j++) {
+            var _point = _combo[_j];
+            if (_point.player == 1) {
+                _player1count++;
+            }
+            else if (_point.player == 2) {
+                _player2count++;
+            }
+        }
+
+        if (_player2count == 2 && _player1count == 0) {
+            // Jogador 2 está prestes a vencer, e deve fazer a jogada para vencer
+            for (var _k = 0; _k < array_length(_combo); _k++) {
+                var _point = _combo[_k];
+                if (_point.player != 1 && _point.player != 2) {
+                    // Retorna um array com a jogada para vencer (primeira posição)
+                    // e as duas posições já tomadas para a vitória (últimas duas posições)
+                    return [_point, _combo[0], _combo[1]];
+                }
+            }
+        }
+    }
+
+    // Se não houver uma jogada iminente de vitória do jogador 2, retorne um array vazio
+    return [];
 }
 
 

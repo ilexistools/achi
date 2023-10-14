@@ -6,4 +6,10 @@ x_start = x;
 y_start = y;
 
 
+if (global.pieces == 3)
+{
+	instance_destroy(self);
+}
+
+
 
