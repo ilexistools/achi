@@ -4,59 +4,67 @@ function ai_choose_move()
 	var _blocking_point = ai_find_blocking_move();
 	var _winning_points = ai_find_winning_move();
 	
-	// BLOCKING
-	if (_blocking_point != undefined)
-	{
-		// get the pos to block
-		var _pos = _blocking_point.pos;
-		// list player 2 objects
-		var _player_objects = noone;
-		if (global.pieces == 4)
-		{
-			_player_objects = [obj_player2_a, obj_player2_b, obj_player2_c, obj_player2_d];
-		}else{
-			_player_objects = [obj_player2_a, obj_player2_b, obj_player2_c];
-		}
-		// check which object can block
-		for (var _i = 0; _i < array_length(_player_objects); _i++)
-		{
-			if (ai_can_move(_player_objects[_i].pos, _pos))
-			{
-				return [_player_objects[_i], _pos];
-			}
-		}
-	}
-	
-	// TRYING TO WIN
 	if (array_length(_winning_points)!= 0)
 	{
-		// get winning points
-		var _point_win = _winning_points[0];
-		var _point_1 = _winning_points[1];
-		var _point_2 = _winning_points[2];
+		// TRYING TO WIN
+		if (array_length(_winning_points)!= 0)
+		{
+			// get winning points
+			var _point_win = _winning_points[0];
+			var _point_1 = _winning_points[1];
+			var _point_2 = _winning_points[2];
 		
-		// list player 2 objects
-		var _player_objects = noone;
-		if (global.pieces == 4)
-		{
-			_player_objects = [obj_player2_a, obj_player2_b, obj_player2_c, obj_player2_d];
-		}else{
-			_player_objects = [obj_player2_a, obj_player2_b, obj_player2_c];
-		}
-		// check which object can take winning point
-		for (var _i = 0; _i < array_length(_player_objects); _i++)
-		{
-			// check if it can move to take it
-			if (ai_can_move(_player_objects[_i].pos, _point_win.pos))
+			// list player 2 objects
+			var _player_objects = noone;
+			if (global.pieces == 4)
 			{
-				//check if it is not from the other winning points taken
-				if (_player_objects[_i].pos != _point_1 && _player_objects[_i].pos != _point_2 )
+				_player_objects = [obj_player2_a, obj_player2_b, obj_player2_c, obj_player2_d];
+			}else{
+				_player_objects = [obj_player2_a, obj_player2_b, obj_player2_c];
+			}
+			// check which object can take winning point
+			for (var _i = 0; _i < array_length(_player_objects); _i++)
+			{
+				// check if it can move to take it
+				if (ai_can_move(_player_objects[_i].pos, _point_win.pos))
 				{
-					return [_player_objects[_i],  _point_win.pos];
+					//check if it is not from the other winning points taken
+					if (_player_objects[_i].pos != _point_1 && _player_objects[_i].pos != _point_2 )
+					{
+						return [_player_objects[_i],  _point_win.pos];
+					}
+				}
+			}
+		}
+	}else{
+		// BLOCKING
+		if (_blocking_point != undefined)
+		{
+			// get the pos to block
+			var _pos = _blocking_point.pos;
+			// list player 2 objects
+			var _player_objects = noone;
+			if (global.pieces == 4)
+			{
+				_player_objects = [obj_player2_a, obj_player2_b, obj_player2_c, obj_player2_d];
+			}else{
+				_player_objects = [obj_player2_a, obj_player2_b, obj_player2_c];
+			}
+			// check which object can block
+			for (var _i = 0; _i < array_length(_player_objects); _i++)
+			{
+				if (ai_can_move(_player_objects[_i].pos, _pos))
+				{
+					return [_player_objects[_i], _pos];
 				}
 			}
 		}
 	}
+	
+	
+	
+	
+	
 	
 	// PLAY RANDOM
 	_valid_move = ai_choose_random_move();
